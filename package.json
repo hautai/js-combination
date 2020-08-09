@@ -1,0 +1,37 @@
+{
+  "name": "js-combination",
+  "version": "0.0.1",
+  "keywords": [
+    "combination",
+    "permutation"
+  ],
+  "description": "The parameters of 'obj2tag' method is changed from v0.0.2",
+  "main": "dist/index.js",
+  "files": [
+    "dist/*"
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "babel src -d dist --presets minify",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hautai/js-combination.git"
+  },
+  "author": "hautai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hautai/js-combination/issues"
+  },
+  "homepage": "https://github.com/hautai/js-combination#readme",
+  "devDependencies": {
+    "@babel/cli": "7.10.5",
+    "@babel/core": "7.11.1",
+    "@babel/preset-env": "7.11.0",
+    "babel-preset-minify": "0.5.1",
+    "jest": "26.2.2"
+  }
+}
