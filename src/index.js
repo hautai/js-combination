@@ -1,29 +1,28 @@
 class Combination {
   constructor() {
-    this.lens = [];
-    this.totalLen = 0;
-    this.arrs = arguments;
-
-    [ ...arguments ].forEach((arr, i) => {
-      const arrLen = arr.length;
-      this.lens[i] = arrLen
-      this.totalLen += arrLen;
+    const args = [ ...arguments ];
+    this.sArrs = args.map(arr => {
+      arr.unshift(arr.pop());
+      return arr;
     });
+    this.divisors = [];
 
-    this.rLens = [ ...this.lens ].reverse();
-    this.rArrs = [ ...this.arrs ].reverse();
-    this.srArrs = this.rArrs.map(arr => arr.unshift(arr.pop()));
+    const totalLen = args.reverse().reduce((divisor, arr) => {
+      this.divisors.unshift(divisor);
+      return divisor * arr.length;
+    }, 1);
+
+    this.totalLen = totalLen;
   }
 
   index(n) {
     n = n + 1;
-    const srArrs = this.rArrs;
-    const result = [];
-    this.rLens.reduce((n, d, i) => {
-      result[i] = srArrs[i][n % d];
-      return Math.ceil(n / d);
-    }, n);
-    return result.reverse();
+    console.log(this.sArrs);
+    const divisors = this.divisors;
+    return this.sArrs.reduce((result, arr, i) => {
+      result[i] = arr[Math.ceil(n / divisors[i]) % arr.length];
+      return result;
+    }, []);
   }
 }
 
