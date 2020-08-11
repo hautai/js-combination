@@ -18,29 +18,31 @@ class Combination {
       return result;
     }, []);
   }
-/*
+
   combine() {
     const divisors = this.divisors;
-    const sArrs = this.sArrs;
-    const sArrsLen = sArrs.length;
+    const arrs = this.arrs;
+    const arrsLen = arrs.length;
     const totalLen = this.totalLen;
-    const results = Array(totalLen).fill([]);
 
-    for (let s = 0; s < sArrsLen; s++) {
-      const sArr = sArrs[s];
-      const sArrLen = sArr.length;
-      const divisor = divisors[s];
-      //console.log(sArr);
+    const results = [];
+
+    for (let i = 0; i < totalLen; i++) {
+      results[i] = [];
+    }
+
+    for (let a = 0; a < arrsLen; a++) {
+      const arr = arrs[a];
+      const arrLen = arr.length;
+      const divisor = divisors[a];
 
       for (let n = 0; n < totalLen; n ++) {
-        //console.log(n, divisor, s);
-        results[n][s] = sArr[Math.floor(n / divisor) % sArrLen];
-        //console.log(results);
+        results[n][a] = arr[Math.floor(n / divisor) % arrLen];
       }
     }
+
     return results
   }
-  */
 }
 
 const arr1 = ['A', 'B', 'C'];
@@ -48,10 +50,7 @@ const arr2 = ['a', 'b', 'c'];
 const arr3 = ['0', '1'];
 
 const test = new Combination(arr1, arr2, arr3);
-//const result = test.combine();
-
-for (let i = 0; i < 18; i++) {
-  console.log(test.index(i));
-}
+const result = test.combine();
+console.log(result);
 
 module.exports = Combination;
