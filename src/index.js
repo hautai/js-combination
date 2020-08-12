@@ -9,7 +9,7 @@ class Combination {
     }, 1);
   }
 
-  index(n) {
+  idx(n) {
     const divisors = this.divisors;
 
     return this.arrs.reduce((result, arr, i) => {
